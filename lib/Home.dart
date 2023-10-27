@@ -484,19 +484,19 @@ getcart() {
   return Scaffold(
     body: Column(
       children: [
+        SizedBox(height: 15,),
         Text(
           'Cart',
           style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
         ),
+        SizedBox(height: 15,),
         Align(
           alignment: Alignment.topLeft,
           child: Text(
           "My Orders",
           style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),),
-          SizedBox(
-          height: ,
-        ),
+          SizedBox(height: 15,),
         getCardItemCard(
             'https://www.laybyland.com.au/media/catalog/product/cache/f3909c84cc0b01542da25634e4effa6c/1/3/1309728_full.jpg',
             '\$1191.00',
