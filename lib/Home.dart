@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myfirstclass/loginscreen.dart';
 
 void main() {}
 
@@ -13,14 +14,7 @@ class BottomNavigationExample extends StatefulWidget {
 class _BottomNavigationExampleState extends State {
   int _selectedTab = 0;
 
-  List _pages = [
-    HomeView(),
-    getcart(),
-    getnotification(),
-    Center(
-      child: Text("Profile"),
-    ),
-  ];
+  List _pages = [HomeView(), getcart(), getnotification(), getprofile()];
 
   _changeTab(int index) {
     setState(() {
@@ -383,7 +377,7 @@ getnotification() {
         height: 15,
       ),
       Text(
-        "Notifiaction",
+        "Notification",
         style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
       ),
       SizedBox(
@@ -494,6 +488,15 @@ getcart() {
           'Cart',
           style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
         ),
+        Align(
+          alignment: Alignment.topLeft,
+          child: Text(
+          "My Orders",
+          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          ),),
+          SizedBox(
+          height: ,
+        ),
         getCardItemCard(
             'https://www.laybyland.com.au/media/catalog/product/cache/f3909c84cc0b01542da25634e4effa6c/1/3/1309728_full.jpg',
             '\$1191.00',
@@ -557,17 +560,28 @@ getCardItemCard(image, amount, text) {
 
 getprofile() {
   return Scaffold(
-    body: Column(
-      children: [
-        getprofilehead(
-            'https://cdn.vectorstock.com/i/preview-1x/17/61/male-avatar-profile-picture-vector-10211761.jpg')
-      ],
+    body: SingleChildScrollView( 
+      child: Column(
+        children: [
+          SizedBox(height: 25),
+          getprofilehead('https://cdn.vectorstock.com/i/preview-1x/17/61/male-avatar-profile-picture-vector-10211761.jpg'),
+          SizedBox(height: 25),
+          getProfileCard(),
+          SizedBox(height: 15),
+          getProfileCard2(),
+          SizedBox(height: 15),
+          getLogout(),
+          SizedBox(height: 15),
+        ],
+      ),
     ),
   );
 }
 
+
 getprofilehead(image) {
   return Container(
+      margin: EdgeInsets.symmetric(horizontal: 20),
       decoration: BoxDecoration(
           border: Border.all(color: Colors.black, width: 3.0),
           borderRadius: BorderRadius.circular(20.0)),
@@ -603,3 +617,109 @@ getprofilehead(image) {
         ),
       ));
 }
+
+getProfileCard() {
+  return Container(
+      margin: EdgeInsets.symmetric(horizontal: 20),
+      decoration: BoxDecoration(
+          border: Border.all(color: Colors.black, width: 3.0),
+          borderRadius: BorderRadius.circular(20.0)),
+      child: Card(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            ListTile(
+              leading: Icon(Icons.person),
+              title: Text('Personal Details'),
+              trailing: Icon(Icons.chevron_right),
+            ),
+            ListTile(
+              leading: Icon(Icons.shopping_cart),
+              title: Text('My Orders'),
+              trailing: Icon(Icons.chevron_right),
+            ),
+            ListTile(
+              leading: Icon(Icons.favorite),
+              title: Text('My Favorites'),
+              trailing: Icon(Icons.chevron_right),
+            ),
+            ListTile(
+              leading: Icon(Icons.location_on),
+              title: Text('Shipping Address'),
+              trailing: Icon(Icons.chevron_right),
+            ),
+            ListTile(
+              leading: Icon(Icons.credit_card),
+              title: Text('My Card'),
+              trailing: Icon(Icons.chevron_right),
+            ),
+            ListTile(
+              leading: Icon(Icons.settings),
+              title: Text('Settings'),
+              trailing: Icon(Icons.chevron_right),
+            ),
+          ],
+        ),
+      ));
+}
+
+getProfileCard2() {
+  return Container(
+      margin: EdgeInsets.symmetric(horizontal: 20),
+      decoration: BoxDecoration(
+          border: Border.all(color: Colors.black, width: 3.0),
+          borderRadius: BorderRadius.circular(20.0)),
+      child: Card(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            ListTile(
+              leading: Icon(Icons.info),
+              title: Text('FAQs'),
+              trailing: Icon(Icons.chevron_right),
+            ),
+            ListTile(
+              leading: Icon(Icons.privacy_tip),
+              title: Text('Privacy Policy'),
+              trailing: Icon(Icons.chevron_right),
+            ),
+            ListTile(
+              leading: Icon(Icons.money),
+              title: Text('Payment Method'),
+              trailing: Icon(Icons.chevron_right),
+            ),
+            ListTile(
+              leading: Icon(Icons.help),
+              title: Text('Help and Support'),
+              trailing: Icon(Icons.chevron_right),
+            ),
+          ],
+        ),
+      ));
+}
+
+
+getLogout() {
+    return Container(
+      width: double.infinity,
+      margin: EdgeInsets.symmetric(horizontal: 20),
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.white,
+          padding: EdgeInsets.symmetric(vertical: 25.0),
+          side: BorderSide(color: Colors.black, width: 2),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20.0),
+          ),
+        ),
+        onPressed: () {
+          
+        },
+        child: Text(
+          "LogOut",
+          style: TextStyle(fontSize: 15,color:Colors.black ,fontWeight: FontWeight.bold ),
+          ),
+      ),
+    );
+  }
+
