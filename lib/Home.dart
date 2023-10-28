@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:myfirstclass/loginscreen.dart';
+import 'package:myfirstclass/main.dart';
+import 'package:myfirstclass/splashscreen2.dart';
+import 'package:myfirstclass/splashscreen4.dart';
 
 void main() {}
 
@@ -476,13 +479,15 @@ getListTile1(avatar, title, subtitle, trailing, color) {
       ),
       title: Text(
         "$title",
-        style: TextStyle(fontSize: 18 , color: Colors.black , fontWeight: FontWeight.bold),
-        ),
+        style: TextStyle(
+            fontSize: 18, color: Colors.black, fontWeight: FontWeight.bold),
+      ),
       subtitle: Text("$subtitle"),
       trailing: Text(
         "$trailing",
-        style: TextStyle(fontSize: 15 , color: Colors.black , fontWeight: FontWeight.bold),
-        ),
+        style: TextStyle(
+            fontSize: 15, color: Colors.black, fontWeight: FontWeight.bold),
+      ),
       tileColor: Colors.white);
 }
 
@@ -490,19 +495,26 @@ getcart() {
   return Scaffold(
     body: Column(
       children: [
-        SizedBox(height: 15,),
+        SizedBox(
+          height: 15,
+        ),
         Text(
           'Cart',
           style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
         ),
-        SizedBox(height: 15,),
+        SizedBox(
+          height: 15,
+        ),
         Align(
           alignment: Alignment.topLeft,
           child: Text(
-          "My Orders",
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-          ),),
-          SizedBox(height: 15,),
+            "My Orders",
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          ),
+        ),
+        SizedBox(
+          height: 15,
+        ),
         getCardItemCard(
             'https://www.laybyland.com.au/media/catalog/product/cache/f3909c84cc0b01542da25634e4effa6c/1/3/1309728_full.jpg',
             '\$1191.00',
@@ -566,24 +578,24 @@ getCardItemCard(image, amount, text) {
 
 getprofile() {
   return Scaffold(
-    body: SingleChildScrollView( 
+    body: SingleChildScrollView(
       child: Column(
         children: [
           SizedBox(height: 25),
-          getprofilehead('https://thumbs.dreamstime.com/b/businessman-avatar-image-beard-hairstyle-male-profile-vector-illustration-178545831.jpg'),
+          getprofilehead(
+              'https://thumbs.dreamstime.com/b/businessman-avatar-image-beard-hairstyle-male-profile-vector-illustration-178545831.jpg'),
           SizedBox(height: 25),
           getProfileCard(),
           SizedBox(height: 15),
           getProfileCard2(),
           SizedBox(height: 15),
-          getLogout(),
+          getlogout(),
           SizedBox(height: 15),
         ],
       ),
     ),
   );
 }
-
 
 getprofilehead(image) {
   return Container(
@@ -704,26 +716,42 @@ getProfileCard2() {
       ));
 }
 
-
-getLogout() {
-    return Container(
-      width: double.infinity,
-      margin: EdgeInsets.symmetric(horizontal: 20),
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.white,
-          padding: EdgeInsets.symmetric(vertical: 25.0),
-          side: BorderSide(color: Colors.black, width: 2),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20.0),
+class getlogout extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Container(
+            width: double.infinity,
+            margin: EdgeInsets.symmetric(horizontal: 20),
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.white,
+                  padding: EdgeInsets.symmetric(vertical: 25.0),
+                  side: BorderSide(color: Colors.black, width: 2),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20.0),
+                  )),
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => SplashScreen4()));
+                Future.delayed(Duration(seconds: 2), () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => MyApp()),
+                  );
+                });
+              },
+              child: Text(
+                'Logout',
+                style: TextStyle(
+                    fontSize: 20,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold),
+              ),
+            ),
           ),
-        ),
-        onPressed: () {},
-        child: Text(
-          "LogOut",
-          style: TextStyle(fontSize: 15,color:Colors.black ,fontWeight: FontWeight.bold ),
-          ),
-      ),
-    );
+        ]);
   }
-
+}
