@@ -474,9 +474,15 @@ getListTile1(avatar, title, subtitle, trailing, color) {
           style: TextStyle(fontSize: 20, color: Colors.white),
         ),
       ),
-      title: Text("$title"),
+      title: Text(
+        "$title",
+        style: TextStyle(fontSize: 18 , color: Colors.black , fontWeight: FontWeight.bold),
+        ),
       subtitle: Text("$subtitle"),
-      trailing: Text("$trailing"),
+      trailing: Text(
+        "$trailing",
+        style: TextStyle(fontSize: 15 , color: Colors.black , fontWeight: FontWeight.bold),
+        ),
       tileColor: Colors.white);
 }
 
@@ -564,7 +570,7 @@ getprofile() {
       child: Column(
         children: [
           SizedBox(height: 25),
-          getprofilehead('https://cdn.vectorstock.com/i/preview-1x/17/61/male-avatar-profile-picture-vector-10211761.jpg'),
+          getprofilehead('https://thumbs.dreamstime.com/b/businessman-avatar-image-beard-hairstyle-male-profile-vector-illustration-178545831.jpg'),
           SizedBox(height: 25),
           getProfileCard(),
           SizedBox(height: 15),
@@ -712,9 +718,7 @@ getLogout() {
             borderRadius: BorderRadius.circular(20.0),
           ),
         ),
-        onPressed: () {
-          
-        },
+        onPressed: () {},
         child: Text(
           "LogOut",
           style: TextStyle(fontSize: 15,color:Colors.black ,fontWeight: FontWeight.bold ),
