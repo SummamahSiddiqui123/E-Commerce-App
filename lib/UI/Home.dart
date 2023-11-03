@@ -423,16 +423,33 @@ class CartView extends StatelessWidget {
     );
   }
 
-  myCartItem(index) {
-    return ListTile(
-      leading: CircleAvatar(
-        child: Image.network(Constants.cartList[index].image),
+ myCartItem(index) {
+  return Column(
+    children: [
+      SizedBox(
+        height: 10,
+        ),
+      Container(
+        decoration: BoxDecoration(
+          border: Border.all(
+            color: Colors.black,
+            width: 2.0,         
+          ),
+          borderRadius: BorderRadius.all(Radius.circular(15.0)),  
+        ),
+        child: ListTile(
+          leading: CircleAvatar(
+            child: Image.network(Constants.cartList[index].image),
+          ),
+          title: Text(Constants.cartList[index].name),
+          subtitle: Text(Constants.cartList[index].brand),
+          trailing: Text(Constants.cartList[index].price),
+        ),
       ),
-      title: Text(Constants.cartList[index].name),
-      subtitle: Text(Constants.cartList[index].brand),
-      trailing: Text(Constants.cartList[index].price),
-    );
-  }
+    ],
+  );
+}
+
 }
 
 class Profile extends StatelessWidget {
