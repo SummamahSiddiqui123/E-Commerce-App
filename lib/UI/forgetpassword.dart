@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:myfirstclass/loginscreen.dart';
-import 'package:myfirstclass/splashscreen2.dart';
+import 'package:myfirstclass/UI/loginscreen.dart';
+import 'package:myfirstclass/UI/splashscreen2.dart';
 
 void main() {}
 

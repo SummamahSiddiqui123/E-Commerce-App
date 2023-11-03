@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:myfirstclass/Home.dart';
-import 'package:myfirstclass/forgetpassword.dart';
-import 'package:myfirstclass/signupscreen.dart';
-import 'package:myfirstclass/splashscreen3.dart';
+import 'package:myfirstclass/UI/Home.dart';
+import 'package:myfirstclass/UI/forgetpassword.dart';
+import 'package:myfirstclass/UI/signupscreen.dart';
+import 'package:myfirstclass/UI/splashscreen3.dart';
 
 void main() {}
 

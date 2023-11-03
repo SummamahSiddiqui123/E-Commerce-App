@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:myfirstclass/Home.dart';
-import 'package:myfirstclass/loginscreen.dart';
-import 'package:myfirstclass/splashscreen.dart';
+import 'package:myfirstclass/UI/Home.dart';
+import 'package:myfirstclass/UI/loginscreen.dart';
+import 'package:myfirstclass/UI/splashscreen.dart';
 
 void main() {}
 
